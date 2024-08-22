@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Motivated</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle at center, #4CAF50, #2e7031);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: -webkit-linear-gradient(#f7d51d, #f57c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            animation: fadeIn 3s ease-out;
+            animation-delay: 1s;
+            animation-fill-mode: backwards;
+            max-width: 800px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            animation: bounceIn 2s ease-out;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #fff;
+            background: #FF5733;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(1);
+            box-shadow: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(100px);
+            }
+            50% {
+                transform: scale(1.05) translateY(-10px);
+            }
+            70% {
+                transform: scale(0.95) translateY(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .floating-text {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            font-size: 2em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>You Are Unstoppable!</h1>
+    <p>The SKY is the LIMIT .</p>
+    <div class="btn-container">
+        <form action="{{ url_for('start_detection') }}" method="post">
+            <button type="submit">Start Face Detection</button>
+        </form>
+    </div>
+    <div class="floating-text">✨ Shine Bright ✨</div>
+</body>
+</html>
